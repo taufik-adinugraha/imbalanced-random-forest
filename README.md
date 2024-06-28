@@ -1,8 +1,8 @@
-# Conventional Vs Enhanced Random Forests for Handling Imbalanced Data
+## Conventional Vs Enhanced Random Forests for Handling Imbalanced Data
 
 Conventional Random Forest implementations do not typically include the specific techniques for handling imbalanced data internally. Here's a breakdown of how to build enhanced random forest for handling imbalanced data:
 
-## 1. Class Weights
+### 1. Class Weights
 
 **Conventional Random Forest:**
 Does not typically use class weights unless explicitly specified. It treats all classes equally by default.
@@ -12,7 +12,7 @@ Incorporates class weights $w_j = \frac{N}{|C_j|}$ to balance the influence of d
   - $N$: Total number of instances in the dataset.
   - $|C_j|$: Number of instances in class \( j \).
 
-## 2. Sampling with Replacement
+### 2. Sampling with Replacement
 
 **Conventional Random Forest:**
 Uses bootstrap sampling (sampling with replacement) to create subsets of the training data for each tree, without considering class distribution.
@@ -24,7 +24,7 @@ $$
 P(y_i = j) = \frac{w_j}{\sum_{k \in \{0, 1\}} w_k}
 $$
 
-## 3. Weighted Gini Impurity
+### 3. Weighted Gini Impurity
 
 **Conventional Random Forest:**
 Uses standard Gini impurity for node splitting, calculated as
@@ -42,7 +42,7 @@ $$
 
 $( p_j )$: Proportion of class $( j )$ instances in the node $( t )$
 
-## 4. Voting Mechanism
+### 4. Voting Mechanism
 
 **Conventional Random Forest:**
 Each tree votes for a class, and the final prediction is made by majority vote.
