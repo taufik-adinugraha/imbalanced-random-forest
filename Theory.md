@@ -9,6 +9,8 @@ Does not typically use class weights unless explicitly specified. It treats all 
 
 **Enhanced Approach:**
 Incorporates class weights $w_j = \frac{N}{|C_j|}$ to balance the influence of different classes during the tree construction.
+  - $N$: Total number of instances in the dataset.
+  - $|C_j|$: Number of instances in class \( j \).
 
 ## 2. Sampling with Replacement
 
@@ -37,6 +39,8 @@ Uses weighted Gini impurity, incorporating class weights:
 $$
 G(t) = 1 - \sum_{j \in \{0, 1\}} \left(\frac{w_j p_j}{\sum_{k \in \{0, 1\}} w_k}\right)^2
 $$
+
+$( p_j )$: Proportion of class $( j )$ instances in the node $( t )$
 
 ## 4. Voting Mechanism
 
